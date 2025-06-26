@@ -10,7 +10,8 @@
 */
 
 function getPrimeFactorsFor(number: number) {
-    return [2];
+    const factors = [2]
+    return factors;
 }
 
 describe('The prime factors', () => {
