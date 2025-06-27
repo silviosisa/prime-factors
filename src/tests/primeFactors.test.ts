@@ -14,7 +14,7 @@ function getPrimeFactorsFor(number: number) {
     const factors = [factor];
     const remainder = number / factor;
     if (remainder > 1) {
-        return factors.concat(factor);
+        return factors.concat(getPrimeFactorsFor(remainder));
     }
     return factors;
 }
