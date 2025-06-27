@@ -3,10 +3,9 @@ export function getPrimeFactorsFor(number: number) {
     while (number % factor !== 0) {
         ++factor;
     }
-    const factors = [factor];
     const remainder = number / factor;
-    if (remainder > 1) {
-        return factors.concat(getPrimeFactorsFor(remainder));
+    if (remainder <= 1) {
+        return [factor];
     }
-    return factors;
+    return [factor].concat(getPrimeFactorsFor(remainder));
 }
