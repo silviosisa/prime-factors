@@ -10,7 +10,10 @@
 */
 
 function getPrimeFactorsFor(number: number) {
-    const factor = 2;
+    let factor = 2;
+    while(number % factor !== 0) {
+        ++factor;
+    }
     const factors = [factor];
     const remainder = number / factor;
     if (remainder > 1) {
@@ -24,5 +27,10 @@ describe('The prime factors', () => {
         expect(getPrimeFactorsFor(2)).toEqual([2])
         expect(getPrimeFactorsFor(2*2)).toEqual([2, 2])
         expect(getPrimeFactorsFor(2*2*2)).toEqual([2, 2, 2])
+        expect(getPrimeFactorsFor(3)).toEqual([3])
+        expect(getPrimeFactorsFor(3*3)).toEqual([3, 3])
+        expect(getPrimeFactorsFor(3*2)).toEqual([2, 3])
+        expect(getPrimeFactorsFor(5*5)).toEqual([5, 5])
+        expect(getPrimeFactorsFor(5*7*11*3)).toEqual([3, 5, 7, 11])
     })
 })
